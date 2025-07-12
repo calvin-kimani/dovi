@@ -25,7 +25,7 @@ Make sure you have [Bun](https://bun.sh) installed on your machine.
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/calvin-kimani/dovi.git
 cd dovi
 
 # Install dependencies
