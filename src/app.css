@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+	--background: 13 13 13;
+	--foreground: 248 250 252;
+	--card: 40 40 40;
+	--card-foreground: 248 250 252;
+	--primary: 59 130 246;
+	--primary-foreground: 248 250 252;
+	--secondary: 23 23 23;
+	--secondary-foreground: 248 250 252;
+	--muted: 40 40 40;
+	--muted-foreground: 120 120 120;
+	--accent: 70 70 70;
+	--accent-foreground: 248 250 252;
+	--border: 40 40 40;
+	--input: 70 70 70;
+	--ring: 59 130 246;
+	--success: 16 185 129;
+	--warning: 245 158 11;
+	--error: 239 68 68;
+	--info: 6 182 212;
+}
+
+@theme inline {
+	--color-background: oklch(from rgb(var(--background)) l c h);
+	--color-foreground: oklch(from rgb(var(--foreground)) l c h);
+	--color-card: oklch(from rgb(var(--card)) l c h);
+	--color-card-foreground: oklch(from rgb(var(--card-foreground)) l c h);
+	--color-primary: oklch(from rgb(var(--primary)) l c h);
+	--color-primary-foreground: oklch(from rgb(var(--primary-foreground)) l c h);
+	--color-secondary: oklch(from rgb(var(--secondary)) l c h);
+	--color-secondary-foreground: oklch(from rgb(var(--secondary-foreground)) l c h);
+	--color-muted: oklch(from rgb(var(--muted)) l c h);
+	--color-muted-foreground: oklch(from rgb(var(--muted-foreground)) l c h);
+	--color-accent: oklch(from rgb(var(--accent)) l c h);
+	--color-accent-foreground: oklch(from rgb(var(--accent-foreground)) l c h);
+	--color-border: oklch(from rgb(var(--border)) l c h);
+	--color-input: oklch(from rgb(var(--input)) l c h);
+	--color-ring: oklch(from rgb(var(--ring)) l c h);
+	--color-success: oklch(from rgb(var(--success)) l c h);
+	--color-warning: oklch(from rgb(var(--warning)) l c h);
+	--color-error: oklch(from rgb(var(--error)) l c h);
+	--color-info: oklch(from rgb(var(--info)) l c h);
+}
+
+.loader {
+	@apply my-auto inline-block animate-[spin_250ms_linear_infinite] rounded-full border-2 border-t-transparent;
+}
+
+.spinner-sm {
+	height: 1rem;
+	width: 1rem;
+}
+
+@layer base {
+	body {
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+		background: var(--color-background);
+		color: var(--color-foreground);
+	}
+
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+		@apply border-border;
+	}
+}
+
+@layer base {
+	/* Box sizing rules */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	/* Remove default margin */
+	body,
+	h1,
+	h2,
+	h3,
+	h4,
+	p,
+	figure,
+	blockquote,
+	dl,
+	dd {
+		margin: 0;
+	}
+
+	/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+	ul[role='list'],
+	ol[role='list'] {
+		list-style: none;
+	}
+
+	/* Set core root defaults */
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+
+	/* Set core body defaults */
+	body {
+		min-height: 100vh;
+		text-rendering: optimizeSpeed;
+		line-height: 1.5;
+	}
+
+	/* A elements that don't have a class get default styles */
+	a:not([class]) {
+		text-decoration-skip-ink: auto;
+	}
+
+	/* Make images easier to work with */
+	img,
+	picture {
+		max-width: 100%;
+		display: block;
+	}
+
+	/* Inherit fonts for inputs and buttons */
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+	@media (prefers-reduced-motion: reduce) {
+		html:focus-within {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	html,
+	body {
+		overflow: auto;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE/Edge */
+	}
+
+	html::-webkit-scrollbar,
+	body::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
+
+	/* Optional: apply to everything */
+	* {
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	*::-webkit-scrollbar {
+		display: none;
+	}
+}
