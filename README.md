@@ -161,7 +161,7 @@ Dovi is designed to be easily customizable for your specific needs:
 
 1. **Clone and Install**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/calvin-kimani/dovi.git
    cd dovi
    bun install
    ```
