@@ -97,7 +97,7 @@
 		<FormErrors errors={$errors.password} />
 	</fieldset>
 
-	<fieldset class="mb-4">
+	<fieldset class="mb-6">
 		<Label for="confirmPassword">Confirm Password</Label>
 		<Input
 			id="confirmPassword"
@@ -110,7 +110,7 @@
 		<FormErrors errors={$errors.confirmPassword} />
 	</fieldset>
 
-	<div class="my-6">
+	<div class="mb-6">
 		<Button class="flex items-center justify-center gap-2" disabled={$delayed}>
 			{#if $delayed}
 				<span class="loader spinner-sm"></span>

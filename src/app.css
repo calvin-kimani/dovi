@@ -1,174 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
 
 :root {
-	--background: 13 13 13;
-	--foreground: 248 250 252;
-	--card: 40 40 40;
-	--card-foreground: 248 250 252;
-	--primary: 59 130 246;
-	--primary-foreground: 248 250 252;
-	--secondary: 23 23 23;
-	--secondary-foreground: 248 250 252;
-	--muted: 40 40 40;
-	--muted-foreground: 120 120 120;
-	--accent: 70 70 70;
-	--accent-foreground: 248 250 252;
-	--border: 40 40 40;
-	--input: 70 70 70;
-	--ring: 59 130 246;
-	--success: 16 185 129;
-	--warning: 245 158 11;
-	--error: 239 68 68;
-	--info: 6 182 212;
+	--font-size: 16px;
+	--background: oklch(1 0 0);
+	--foreground: oklch(0.141 0.005 285.823);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.141 0.005 285.823);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.141 0.005 285.823);
+	--primary: oklch(0.606 0.25 292.717);
+	--primary-foreground: oklch(0.969 0.016 293.756);
+	--secondary: oklch(0.967 0.001 286.375);
+	--secondary-foreground: oklch(0.21 0.006 285.885);
+	--muted: oklch(0.967 0.001 286.375);
+	--muted-foreground: oklch(0.552 0.016 285.938);
+	--accent: oklch(0.967 0.001 286.375);
+	--accent-foreground: oklch(0.21 0.006 285.885);
+	--destructive: oklch(0.577 0.245 27.325);
+	--border: oklch(0.92 0.004 286.32);
+	--input: oklch(0.92 0.004 286.32);
+}
+
+.dark {
+	--background: oklch(0.141 0.005 285.823);
+	--foreground: oklch(0.985 0 0);
+	--card: oklch(0.21 0.006 285.885);
+	--card-foreground: oklch(0.985 0 0);
+	--popover: oklch(0.21 0.006 285.885);
+	--popover-foreground: oklch(0.985 0 0);
+	--primary: oklch(0.541 0.281 293.009);
+	--primary-foreground: oklch(0.969 0.016 293.756);
+	--secondary: oklch(0.274 0.006 286.033);
+	--secondary-foreground: oklch(0.985 0 0);
+	--muted: oklch(0.274 0.006 286.033);
+	--muted-foreground: oklch(0.705 0.015 286.067);
+	--accent: oklch(0.274 0.006 286.033);
+	--accent-foreground: oklch(0.985 0 0);
+	--destructive: oklch(0.704 0.191 22.216);
+	--border: oklch(1 0 0 / 10%);
+	--input: oklch(1 0 0 / 15%);
 }
 
 @theme inline {
-	--color-background: oklch(from rgb(var(--background)) l c h);
-	--color-foreground: oklch(from rgb(var(--foreground)) l c h);
-	--color-card: oklch(from rgb(var(--card)) l c h);
-	--color-card-foreground: oklch(from rgb(var(--card-foreground)) l c h);
-	--color-primary: oklch(from rgb(var(--primary)) l c h);
-	--color-primary-foreground: oklch(from rgb(var(--primary-foreground)) l c h);
-	--color-secondary: oklch(from rgb(var(--secondary)) l c h);
-	--color-secondary-foreground: oklch(from rgb(var(--secondary-foreground)) l c h);
-	--color-muted: oklch(from rgb(var(--muted)) l c h);
-	--color-muted-foreground: oklch(from rgb(var(--muted-foreground)) l c h);
-	--color-accent: oklch(from rgb(var(--accent)) l c h);
-	--color-accent-foreground: oklch(from rgb(var(--accent-foreground)) l c h);
-	--color-border: oklch(from rgb(var(--border)) l c h);
-	--color-input: oklch(from rgb(var(--input)) l c h);
-	--color-ring: oklch(from rgb(var(--ring)) l c h);
-	--color-success: oklch(from rgb(var(--success)) l c h);
-	--color-warning: oklch(from rgb(var(--warning)) l c h);
-	--color-error: oklch(from rgb(var(--error)) l c h);
-	--color-info: oklch(from rgb(var(--info)) l c h);
-}
-
-.loader {
-	@apply my-auto inline-block animate-[spin_250ms_linear_infinite] rounded-full border-2 border-t-transparent;
-}
-
-.spinner-sm {
-	height: 1rem;
-	width: 1rem;
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--font-figtree: 'Figtree', var(--font-sans);
 }
 
 @layer base {
-	body {
-		height: 100vh;
-		width: 100vw;
-		overflow: hidden;
-		background: var(--color-background);
-		color: var(--color-foreground);
-	}
-
 	*,
 	::after,
 	::before,
 	::backdrop,
 	::file-selector-button {
-		border-color: var(--color-gray-200, currentColor);
-		@apply border-border;
+		border-color: var(--border);
+	}
+
+	body {
+		@apply font-figtree;
+		@apply bg-background text-foreground;
 	}
 }
 
 @layer base {
-	/* Box sizing rules */
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-	}
-
-	/* Remove default margin */
-	body,
-	h1,
-	h2,
-	h3,
-	h4,
-	p,
-	figure,
-	blockquote,
-	dl,
-	dd {
-		margin: 0;
-	}
-
-	/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-	ul[role='list'],
-	ol[role='list'] {
-		list-style: none;
-	}
-
-	/* Set core root defaults */
-	html:focus-within {
-		scroll-behavior: smooth;
-	}
-
-	/* Set core body defaults */
-	body {
-		min-height: 100vh;
-		text-rendering: optimizeSpeed;
-		line-height: 1.5;
-	}
-
-	/* A elements that don't have a class get default styles */
-	a:not([class]) {
-		text-decoration-skip-ink: auto;
-	}
-
-	/* Make images easier to work with */
-	img,
-	picture {
-		max-width: 100%;
-		display: block;
-	}
-
-	/* Inherit fonts for inputs and buttons */
-	input,
-	button,
-	textarea,
-	select {
-		font: inherit;
-	}
-
-	/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-	@media (prefers-reduced-motion: reduce) {
-		html:focus-within {
-			scroll-behavior: auto;
+	:where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+		h1 {
+			font-size: var(--text-2xl);
+			font-weight: var(--font-weight-medium);
+			line-height: 1.5;
 		}
 
-		*,
-		*::before,
-		*::after {
-			animation-duration: 0.01ms !important;
-			animation-iteration-count: 1 !important;
-			transition-duration: 0.01ms !important;
-			scroll-behavior: auto !important;
+		h2 {
+			font-size: var(--text-xl);
+			font-weight: var(--font-weight-medium);
+			line-height: 1.5;
+		}
+
+		h3 {
+			font-size: var(--text-lg);
+			font-weight: var(--font-weight-medium);
+			line-height: 1.5;
+		}
+
+		h4 {
+			font-size: var(--text-base);
+			font-weight: var(--font-weight-medium);
+			line-height: 1.5;
+		}
+
+		p {
+			font-size: var(--text-base);
+			font-weight: var(--font-weight-normal);
+			line-height: 1.5;
+		}
+
+		label {
+			font-size: var(--text-base);
+			font-weight: var(--font-weight-medium);
+			line-height: 1.5;
+		}
+
+		button {
+			font-size: var(--text-base);
+			font-weight: var(--font-weight-medium);
+			line-height: 1.5;
+		}
+
+		input {
+			font-size: var(--text-base);
+			font-weight: var(--font-weight-normal);
+			line-height: 1.5;
 		}
 	}
+}
 
-	html,
-	body {
-		overflow: auto;
-		scrollbar-width: none; /* Firefox */
-		-ms-overflow-style: none; /* IE/Edge */
+@layer base {
+	html {
+		font-size: var(--font-size);
 	}
 
-	html::-webkit-scrollbar,
-	body::-webkit-scrollbar {
-		display: none; /* Chrome, Safari, Opera */
-	}
-
-	/* Optional: apply to everything */
+	/* Hide scrollbars for all browsers while maintaining scroll functionality */
 	* {
-		scrollbar-width: none;
-		-ms-overflow-style: none;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
 	}
 
 	*::-webkit-scrollbar {
-		display: none;
+		width: 0px;
+		background: transparent; /* Chrome/Safari/Webkit */
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background: transparent;
 	}
 }

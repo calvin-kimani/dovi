@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>{AppName} | Sign In</title>
+	<title>{AppName} - Sign In</title>
 </svelte:head>
 
 <SignInForm form={data.form} />

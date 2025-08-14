@@ -86,7 +86,7 @@
 		<div
 			class={cn(
 				'flex h-full w-full items-center justify-center rounded-full',
-				'bg-muted text-foreground font-bold'
+				'bg-primary text-primary-foreground font-bold'
 			)}
 		>
 			{#if children}

@@ -3,5 +3,5 @@
 </script>
 
 <svelte:head>
-	<title>{AppName} | Dashboard</title>
+	<title>{AppName} - Dashboard</title>
 </svelte:head>

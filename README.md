@@ -113,6 +113,7 @@ Dovi uses SvelteKit's advanced routing with layout groups for different page typ
 The component system is built with composition and reusability in mind:
 
 #### Base Components
+
 - `Button`, `Input`, `Label` - Form controls with consistent styling
 - `Avatar` - User avatars with fallback initials and multiple sizes
 - `Separator` - Visual dividers and spacers
@@ -120,11 +121,13 @@ The component system is built with composition and reusability in mind:
 - `ModeToggle` - Dark/light theme switcher
 
 #### Composite Systems
+
 - **Sidebar System**: Complete navigation solution with collapsible states, groups, and context management
 - **Collapsible**: Accordion-style content reveal components
 - **Dropdown**: Menu and action dropdowns with proper focus management
 
 #### Layout Components
+
 - `AppNavbar` - Top navigation with mobile responsiveness
 - `AppSidebar` - Main navigation sidebar with user management
 
@@ -160,6 +163,7 @@ Dovi is designed to be easily customizable for your specific needs:
 ## Getting Started
 
 1. **Clone and Install**
+
    ```bash
    git clone https://github.com/calvin-kimani/dovi.git
    cd dovi
@@ -167,12 +171,14 @@ Dovi is designed to be easily customizable for your specific needs:
    ```
 
 2. **Start Development**
+
    ```bash
    bun run dev
    # Visit http://localhost:80
    ```
 
 3. **Build for Production**
+
    ```bash
    bun run build
    bun run preview
@@ -208,7 +214,7 @@ This is a starter kit designed to accelerate dashboard and web application devel
 ✅ **Form Validation** - Zod schemas with SuperForms integration  
 ✅ **Theme Support** - Dark/light mode toggle  
 ✅ **Type Safety** - Strict TypeScript throughout  
-✅ **Modern Tooling** - Bun, Vite, ESLint, Prettier  
+✅ **Modern Tooling** - Bun, Vite, ESLint, Prettier
 
 ## Documentation
 

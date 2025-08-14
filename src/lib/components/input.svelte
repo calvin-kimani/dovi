@@ -21,8 +21,8 @@
 		}
 	}
 
-	let baseClass = 'bg-input border-border border max-h-10 text-sm rounded-lg outline-none ring-0';
-	let inputClass = 'bg-input inline-block w-full h-full p-2 rounded-lg';
+	let baseClass = 'border max-h-10 text-sm rounded-lg outline-none ring-0';
+	let inputClass = 'inline-block w-full h-full p-2 rounded-lg';
 </script>
 
 {#if type == 'password'}
@@ -36,7 +36,7 @@
 		<input
 			type={password}
 			{name}
-			class={cn('h-full border-none ring-0 outline-none', inputClass)}
+			class={cn('!h-full border-none ring-0 outline-none', inputClass)}
 			bind:value
 			{...restProps}
 		/>

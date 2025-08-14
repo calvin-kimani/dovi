@@ -18,7 +18,7 @@
 	const navItems = [{ href: '/dashboard', icon: Home, label: 'Dashboard' }];
 </script>
 
-<Sidebar.Content class="bg-secondary text-secondary-foreground">
+<Sidebar.Content class="bg-card text-card-foreground border-r">
 	<Sidebar.Header class="mb-2 flex items-center gap-2 p-2">
 		<img src="/favicon.svg" alt="logo" class="h-6 w-6" />
 		<span class="font-bold">Dovi</span>
@@ -108,11 +108,11 @@
 	}
 
 	menu [role='menuitem']:hover {
-		background-color: oklch(from rgb(var(--accent)) l c h);
+		background-color: var(--accent);
 	}
 
 	menu [role='menuitem']:disabled {
-		color: oklch(from rgb(var(--muted-foreground)) l c h);
+		color: var(--muted-foreground);
 		background-color: transparent;
 	}
 </style>

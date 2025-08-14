@@ -42,7 +42,7 @@
 
 	const baseClasses =
 		'flex w-full items-center gap-2 p-2 text-sm font-medium transition-all duration-200 hover:bg-accent group relative [&_svg]:h-[18px] [&_svg]:w-[18px] cursor-pointer';
-	const activeClasses = 'bg-accent text-accent-foreground';
+	const activeClasses = 'bg-primary hover:bg-primary text-primary-foreground';
 	const disabledClasses =
 		'opacity-50 cursor-not-allowed pointer-events-none text-muted-foreground bg-muted';
 </script>

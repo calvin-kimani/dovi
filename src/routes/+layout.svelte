@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ModeWatcher } from 'mode-watcher';
 	import '../app.css';
 	import { Toaster } from 'svelte-sonner';
 
@@ -6,4 +7,5 @@
 </script>
 
 <Toaster richColors position="top-center" />
+<ModeWatcher />
 {@render children()}

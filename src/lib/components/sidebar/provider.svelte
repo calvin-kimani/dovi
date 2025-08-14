@@ -17,7 +17,7 @@
 
 <div
 	class={cn(
-		'grid h-full w-full overflow-hidden transition-all duration-300 ease-in-out',
+		'grid h-screen w-screen overflow-hidden transition-all duration-300 ease-in-out',
 		sidebar?.isOpen
 			? sidebar?.isCollapsed
 				? 'md:grid-cols-[3rem_1fr]'

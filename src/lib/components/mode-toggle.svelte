@@ -1,16 +1,28 @@
 <script lang="ts">
-	import SunIcon from '@lucide/svelte/icons/sun';
-	import MoonIcon from '@lucide/svelte/icons/moon';
+	import { mode, toggleMode } from 'mode-watcher';
+	import { cn } from '$lib/utils';
+	import Sun from '@lucide/svelte/icons/sun';
+	import Moon from '@lucide/svelte/icons/moon';
+	import type { Snippet } from 'svelte';
 
-	import { toggleMode } from 'mode-watcher';
+	interface Props {
+		class?: string;
+		children?: Snippet;
+	}
+
+	let { class: className, children, ...restProps }: Props = $props();
 </script>
 
-<button onclick={toggleMode}>
-	<SunIcon
-		class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90"
-	/>
-	<MoonIcon
-		class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 !transition-all dark:scale-100 dark:rotate-0"
-	/>
-	<span class="sr-only">Toggle theme</span>
+<button
+	onclick={toggleMode}
+	class={cn('flex cursor-pointer items-center justify-center', className)}
+	{...restProps}
+>
+	{#if children?.()}
+		{@render children()}
+	{:else if mode.current === 'dark'}
+		<Sun size={18} />
+	{:else if mode.current === 'light'}
+		<Moon size={18} />
+	{/if}
 </button>

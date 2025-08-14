@@ -17,18 +17,20 @@ This document provides comprehensive documentation for all components in the Dov
 A versatile button component with multiple variants and states.
 
 **Props:**
+
 ```typescript
 interface Props {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
-  disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
-  class?: string;
-  children: Snippet;
+	variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+	size?: 'sm' | 'md' | 'lg';
+	disabled?: boolean;
+	type?: 'button' | 'submit' | 'reset';
+	class?: string;
+	children: Snippet;
 }
 ```
 
 **Features:**
+
 - Multiple visual variants
 - Disabled state handling
 - Loading state support
@@ -36,10 +38,9 @@ interface Props {
 - Consistent sizing system
 
 **Example:**
+
 ```svelte
-<Button variant="primary" size="md" onclick={handleClick}>
-  Save Changes
-</Button>
+<Button variant="primary" size="md" onclick={handleClick}>Save Changes</Button>
 ```
 
 ### Input (`src/lib/components/input.svelte`)
@@ -47,20 +48,22 @@ interface Props {
 Enhanced input component with validation support and password toggle.
 
 **Props:**
+
 ```typescript
 interface Props {
-  type?: string;
-  placeholder?: string;
-  value?: string;
-  disabled?: boolean;
-  required?: boolean;
-  class?: string;
-  name?: string;
-  id?: string;
+	type?: string;
+	placeholder?: string;
+	value?: string;
+	disabled?: boolean;
+	required?: boolean;
+	class?: string;
+	name?: string;
+	id?: string;
 }
 ```
 
 **Features:**
+
 - Password visibility toggle
 - Validation state styling
 - Placeholder text support
@@ -68,13 +71,9 @@ interface Props {
 - Form integration ready
 
 **Example:**
+
 ```svelte
-<Input 
-  type="email" 
-  placeholder="Enter your email"
-  bind:value={email}
-  required 
-/>
+<Input type="email" placeholder="Enter your email" bind:value={email} required />
 ```
 
 ### Label (`src/lib/components/label.svelte`)
@@ -82,16 +81,18 @@ interface Props {
 Form label component with consistent typography.
 
 **Props:**
+
 ```typescript
 interface Props {
-  for?: string;
-  required?: boolean;
-  class?: string;
-  children: Snippet;
+	for?: string;
+	required?: boolean;
+	class?: string;
+	children: Snippet;
 }
 ```
 
 **Example:**
+
 ```svelte
 <Label for="email" required>Email Address</Label>
 ```
@@ -101,30 +102,28 @@ interface Props {
 User avatar component with fallback initials and multiple sizes.
 
 **Props:**
+
 ```typescript
 interface Props {
-  src?: string;
-  alt?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-  fallback?: string;
-  class?: string;
+	src?: string;
+	alt?: string;
+	size?: 'sm' | 'md' | 'lg' | 'xl';
+	fallback?: string;
+	class?: string;
 }
 ```
 
 **Features:**
+
 - Image loading with fallback
 - Automatic initial generation
 - Multiple size variants
 - Accessible alt text support
 
 **Example:**
+
 ```svelte
-<Avatar 
-  src="/user-avatar.jpg" 
-  alt="John Doe" 
-  size="md" 
-  fallback="JD" 
-/>
+<Avatar src="/user-avatar.jpg" alt="John Doe" size="md" fallback="JD" />
 ```
 
 ### Separator (`src/lib/components/separator.svelte`)
@@ -132,14 +131,16 @@ interface Props {
 Visual separator component for content organization.
 
 **Props:**
+
 ```typescript
 interface Props {
-  orientation?: 'horizontal' | 'vertical';
-  class?: string;
+	orientation?: 'horizontal' | 'vertical';
+	class?: string;
 }
 ```
 
 **Example:**
+
 ```svelte
 <Separator orientation="horizontal" />
 ```
@@ -149,18 +150,20 @@ interface Props {
 Contextual tooltip component for enhanced UX.
 
 **Props:**
+
 ```typescript
 interface Props {
-  content: string;
-  placement?: 'top' | 'bottom' | 'left' | 'right';
-  children: Snippet;
+	content: string;
+	placement?: 'top' | 'bottom' | 'left' | 'right';
+	children: Snippet;
 }
 ```
 
 **Example:**
+
 ```svelte
 <Tooltip content="Click to save your changes" placement="top">
-  <Button>Save</Button>
+	<Button>Save</Button>
 </Tooltip>
 ```
 
@@ -169,12 +172,14 @@ interface Props {
 Dark/light theme toggle button with mode-watcher integration.
 
 **Features:**
+
 - Automatic theme detection
 - Smooth transitions
 - System preference support
 - Accessible toggle states
 
 **Example:**
+
 ```svelte
 <ModeToggle />
 ```
@@ -186,19 +191,22 @@ Dark/light theme toggle button with mode-watcher integration.
 Top navigation bar component for the dashboard layout.
 
 **Features:**
+
 - Sidebar toggle integration
 - Mobile responsive design
 - User menu integration
 - Breadcrumb support
 
 **Props:**
+
 ```typescript
 interface Props {
-  class?: string;
+	class?: string;
 }
 ```
 
 **Example:**
+
 ```svelte
 <AppNavbar class="border-b" />
 ```
@@ -208,19 +216,22 @@ interface Props {
 Main navigation sidebar component with collapsible functionality.
 
 **Features:**
+
 - Collapsible navigation
 - User account section
 - Navigation groups
 - Mobile overlay support
 
 **Props:**
+
 ```typescript
 interface Props {
-  class?: string;
+	class?: string;
 }
 ```
 
 **Example:**
+
 ```svelte
 <AppSidebar class="border-r" />
 ```
@@ -234,21 +245,25 @@ A complete sidebar component system built with the provider pattern for state ma
 #### Core Components
 
 **Provider (`provider.svelte`)**
+
 - Context provider for sidebar state
 - Manages collapsed/expanded states
 - Handles mobile responsive behavior
 
 **Content (`content.svelte`)**
+
 - Main sidebar content container
 - Responsive width management
 - Scroll behavior handling
 
 **Header (`header.svelte`)**
+
 - Sidebar header section
 - Logo and branding area
 - Toggle button placement
 
 **Footer (`footer.svelte`)**
+
 - Sidebar footer section
 - User account information
 - Additional action buttons
@@ -256,62 +271,69 @@ A complete sidebar component system built with the provider pattern for state ma
 #### Navigation Components
 
 **Group (`group.svelte`)**
+
 - Navigation group container
 - Collapsible sections
 - Organized navigation structure
 
 **GroupLabel (`group-label.svelte`)**
+
 - Section headers for navigation groups
 - Consistent typography
 - Collapsible indicators
 
 **GroupContent (`group-content.svelte`)**
+
 - Content wrapper for navigation groups
 - Animated expand/collapse
 - Proper spacing management
 
 **Link (`link.svelte`)**
+
 - Navigation links with active states
 - Icon and text support
 - Hover and focus states
 
 **Button (`button.svelte`)**
+
 - Action buttons within sidebar
 - Consistent styling with links
 - Click handling and states
 
 **Trigger (`trigger.svelte`)**
+
 - Sidebar toggle button
 - Mobile hamburger menu
 - State management integration
 
 #### Usage Example:
+
 ```svelte
 <Sidebar.Provider>
-  <Sidebar.Content>
-    <Sidebar.Header>
-      <Sidebar.Trigger />
-      <h1>App Name</h1>
-    </Sidebar.Header>
-    
-    <Sidebar.Group>
-      <Sidebar.GroupLabel>Navigation</Sidebar.GroupLabel>
-      <Sidebar.GroupContent>
-        <Sidebar.Link href="/dashboard" active={$page.url.pathname === '/dashboard'}>
-          <DashboardIcon />
-          Dashboard
-        </Sidebar.Link>
-        <Sidebar.Link href="/settings">
-          <SettingsIcon />
-          Settings
-        </Sidebar.Link>
-      </Sidebar.GroupContent>
-    </Sidebar.Group>
-    
-    <Sidebar.Footer>
-      <UserMenu />
-    </Sidebar.Footer>
-  </Sidebar.Content>
+	<Sidebar.Content>
+		<Sidebar.Header>
+			<Sidebar.Trigger />
+			<h1>App Name</h1>
+		</Sidebar.Header>
+
+		<Sidebar.Group>
+			<Sidebar.GroupLabel>Navigation</Sidebar.GroupLabel>
+			<Sidebar.GroupContent>
+				<Sidebar.Link href="/dashboard" active={$page.url.pathname === '/dashboard'}>
+					<DashboardIcon />
+					Dashboard
+				</Sidebar.Link>
+				<Sidebar.Link href="/settings">
+					<SettingsIcon />
+					Settings
+				</Sidebar.Link>
+			</Sidebar.GroupContent>
+		</Sidebar.Group>
+
+		<Sidebar.Footer>
+			<UserMenu />
+		</Sidebar.Footer>
+	</Sidebar.Content>
 </Sidebar.Provider>
 ```
 
@@ -320,29 +342,31 @@ A complete sidebar component system built with the provider pattern for state ma
 Accordion-style content reveal components.
 
 **Root (`root.svelte`)**
+
 - Container for collapsible content
 - State management
 - Animation coordination
 
 **Trigger (`trigger.svelte`)**
+
 - Clickable trigger element
 - Accessible toggle behavior
 - Visual state indicators
 
 **Content (`content.svelte`)**
+
 - Collapsible content container
 - Smooth animations
 - Height transitions
 
 #### Usage Example:
+
 ```svelte
 <Collapsible.Root>
-  <Collapsible.Trigger>
-    Click to expand
-  </Collapsible.Trigger>
-  <Collapsible.Content>
-    <p>This content can be collapsed</p>
-  </Collapsible.Content>
+	<Collapsible.Trigger>Click to expand</Collapsible.Trigger>
+	<Collapsible.Content>
+		<p>This content can be collapsed</p>
+	</Collapsible.Content>
 </Collapsible.Root>
 ```
 
@@ -351,31 +375,35 @@ Accordion-style content reveal components.
 Menu and action dropdown components with proper focus management.
 
 **Root (`root.svelte`)**
+
 - Dropdown container
 - Position management
 - Click outside handling
 
 **Trigger (`trigger.svelte`)**
+
 - Dropdown trigger button
 - Keyboard navigation
 - Accessible attributes
 
 **Content (`content.svelte`)**
+
 - Dropdown menu content
 - Focus trapping
 - Menu item styling
 
 #### Usage Example:
+
 ```svelte
 <Dropdown.Root>
-  <Dropdown.Trigger>
-    <Button>Menu</Button>
-  </Dropdown.Trigger>
-  <Dropdown.Content>
-    <a href="/profile">Profile</a>
-    <a href="/settings">Settings</a>
-    <button onclick={signOut}>Sign Out</button>
-  </Dropdown.Content>
+	<Dropdown.Trigger>
+		<Button>Menu</Button>
+	</Dropdown.Trigger>
+	<Dropdown.Content>
+		<a href="/profile">Profile</a>
+		<a href="/settings">Settings</a>
+		<button onclick={signOut}>Sign Out</button>
+	</Dropdown.Content>
 </Dropdown.Root>
 ```
 
@@ -386,6 +414,7 @@ Menu and action dropdown components with proper focus management.
 Complete sign-in form with validation and error handling.
 
 **Features:**
+
 - Email and password validation
 - Loading states with spinner
 - Toast notifications
@@ -396,6 +425,7 @@ Complete sign-in form with validation and error handling.
 Uses `SignInSchema` from `src/lib/schemas/sign-in-schema.ts`
 
 **Example Usage:**
+
 ```svelte
 <SignInForm />
 ```
@@ -405,6 +435,7 @@ Uses `SignInSchema` from `src/lib/schemas/sign-in-schema.ts`
 User registration form with comprehensive validation.
 
 **Features:**
+
 - Multi-field validation (name, email, phone, password)
 - Password confirmation matching
 - Loading states
@@ -415,6 +446,7 @@ User registration form with comprehensive validation.
 Uses `SignUpSchema` from `src/lib/schemas/sign-up-schema.ts`
 
 **Example Usage:**
+
 ```svelte
 <SignUpForm />
 ```
@@ -424,14 +456,16 @@ Uses `SignUpSchema` from `src/lib/schemas/sign-up-schema.ts`
 Reusable component for displaying form validation errors.
 
 **Props:**
+
 ```typescript
 interface Props {
-  errors: string[];
-  class?: string;
+	errors: string[];
+	class?: string;
 }
 ```
 
 **Example:**
+
 ```svelte
 <FormErrors errors={$errors.email} />
 ```

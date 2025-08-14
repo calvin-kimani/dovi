@@ -111,18 +111,38 @@
 			}
 		}
 
-		// Auto-adjust alignment to keep content in viewport (only if not explicitly set by compound side)
+		// Auto-adjust alignment to keep content in viewport
 		if (!side.includes('-')) {
 			if (newSide === 'bottom' || newSide === 'top') {
 				const contentWidth = contentRect.width;
 				const triggerCenter = triggerRect.left + triggerRect.width / 2;
 
-				if (triggerCenter - contentWidth / 2 < 0) {
-					newAlign = 'start';
-				} else if (triggerCenter + contentWidth / 2 > viewport.width) {
-					newAlign = 'end';
-				} else if (align === 'center') {
-					newAlign = 'center';
+				// Check if content would overflow when using the default alignment
+				if (defaultAlign === 'end') {
+					// For end alignment, check if content extends beyond right edge
+					if (triggerRect.right - contentWidth < 0) {
+						newAlign = 'start';
+					} else {
+						newAlign = 'end';
+					}
+				} else if (defaultAlign === 'start') {
+					// For start alignment, check if content extends beyond right edge
+					if (triggerRect.left + contentWidth > viewport.width) {
+						newAlign = 'end';
+					} else {
+						newAlign = 'start';
+					}
+				} else if (defaultAlign === 'center') {
+					// For center alignment, check both sides
+					if (triggerCenter - contentWidth / 2 < 0) {
+						newAlign = 'start';
+					} else if (triggerCenter + contentWidth / 2 > viewport.width) {
+						newAlign = 'end';
+					} else {
+						newAlign = 'center';
+					}
+				} else {
+					newAlign = defaultAlign;
 				}
 			}
 		}
@@ -161,8 +181,8 @@
 					case 'center': // center of content aligns with center of trigger
 						x = left + (triggerRect.width - contentRect.width) / 2;
 						break;
-					case 'end': // left edge of content aligns with right edge of trigger
-						x = right;
+					case 'end': // right edge of content aligns with right edge of trigger
+						x = right - contentRect.width;
 						break;
 				}
 			} else {
@@ -243,7 +263,7 @@
 		bind:this={contentElement}
 		data-dropdown-content
 		class={cn(
-			'bg-card text-card-foreground z-50 min-w-64 overflow-hidden rounded-xl p-1 shadow-2xl',
+			'bg-popover z-50 min-w-64 overflow-hidden rounded-xl border p-1 shadow-2xl',
 			'data-[state=open]:animate-in data-[state=closed]:animate-out',
 			'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
 			'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',

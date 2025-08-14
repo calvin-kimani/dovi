@@ -3,5 +3,5 @@
 </script>
 
 <svelte:head>
-	<title>{AppName} | Terms Of Service</title>
+	<title>{AppName} - Terms Of Service</title>
 </svelte:head>

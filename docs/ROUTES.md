@@ -27,11 +27,13 @@ Dovi uses SvelteKit's advanced routing system with layout groups to organize dif
 The root layout provides the foundation for all pages in the application.
 
 **Purpose:**
+
 - Global CSS imports and TailwindCSS styles
 - Toast notification system setup
 - Consistent HTML structure across all routes
 
 **Features:**
+
 - Svelte Sonner toast notifications
 - Global styling application
 - Base HTML structure
@@ -43,16 +45,19 @@ The root layout provides the foundation for all pages in the application.
 SvelteKit layout groups are used to apply different layouts to specific route sections:
 
 #### Auth Layout Group `(auth)`
+
 - **Layout File:** `src/routes/(auth)/+layout@.svelte`
 - **Purpose:** Centered authentication card with branded background
 - **Applied to:** Sign-in, sign-up, and sign-out routes
 
 #### App Layout Group `(app)`
+
 - **Layout File:** `src/routes/(app)/+layout@.svelte`
 - **Purpose:** Dashboard layout with sidebar navigation and top navbar
 - **Applied to:** Protected dashboard and settings pages
 
 #### Home Layout Group `(home)`
+
 - **Layout:** Inherits from root layout
 - **Purpose:** Public marketing and landing pages
 - **Applied to:** Homepage and public content
@@ -70,6 +75,7 @@ Routes accessible to all visitors without authentication.
 **Layout:** Root layout (no special layout)
 
 **Features:**
+
 - Welcome message and basic app introduction
 - Navigation to authentication pages
 - Public content showcase
@@ -82,6 +88,7 @@ Routes accessible to all visitors without authentication.
 Routes for user authentication and account management.
 
 **Layout Features:**
+
 - Centered authentication card design
 - Branded background pattern
 - Responsive design for mobile and desktop
@@ -95,6 +102,7 @@ Routes for user authentication and account management.
 **Component:** Uses `SignInForm` from `src/lib/forms/sign-in-form.svelte`
 
 **Features:**
+
 - Email and password validation
 - Form error handling
 - Loading states
@@ -102,6 +110,7 @@ Routes for user authentication and account management.
 - Link to sign-up page
 
 **Server Logic:** `+page.server.ts`
+
 - Form action handling
 - Validation processing
 - Authentication logic (placeholder)
@@ -117,6 +126,7 @@ Routes for user authentication and account management.
 **Component:** Uses `SignUpForm` from `src/lib/forms/sign-up-form.svelte`
 
 **Features:**
+
 - Multi-field registration form (first name, last name, email, phone, password)
 - Password confirmation validation
 - Comprehensive form validation
@@ -124,6 +134,7 @@ Routes for user authentication and account management.
 - Toast notifications
 
 **Server Logic:** `+page.server.ts`
+
 - Registration form processing
 - User creation logic (placeholder)
 - Validation handling
@@ -139,6 +150,7 @@ Routes for user authentication and account management.
 **Implementation:** Server-only route (no page component)
 
 **Server Logic:** `+page.server.ts`
+
 - Session termination
 - Cookie clearing
 - Redirect to sign-in page
@@ -149,6 +161,7 @@ Routes for user authentication and account management.
 Routes requiring user authentication, featuring dashboard layout.
 
 **Layout Features:**
+
 - Sidebar navigation with collapsible functionality
 - Top navigation bar with user menu
 - Responsive design with mobile overlay
@@ -160,12 +173,14 @@ Routes requiring user authentication, featuring dashboard layout.
 **Purpose:** Main application dashboard and user home
 
 **Features:**
+
 - Dashboard overview and metrics
 - Quick actions and navigation
 - User-specific content
 - Main application interface
 
 **Server Logic:** `+page.server.ts`
+
 - User data loading
 - Dashboard metrics
 - Authentication verification
@@ -176,12 +191,14 @@ Routes requiring user authentication, featuring dashboard layout.
 **Purpose:** User account settings and preferences
 
 **Features:**
+
 - User profile management
 - Application preferences
 - Account security options
 - Configuration options
 
 **Server Logic:** `+page.server.ts`
+
 - Settings data loading
 - User preference handling
 - Form processing for settings updates
@@ -195,6 +212,7 @@ Routes requiring user authentication, featuring dashboard layout.
 **Layout:** Root layout only
 
 **Features:**
+
 - Static content display
 - Legal compliance
 - Accessible from any page
@@ -206,6 +224,7 @@ Routes requiring user authentication, featuring dashboard layout.
 **Layout:** Root layout only
 
 **Features:**
+
 - Static legal content
 - User agreement terms
 - Compliance documentation
@@ -217,21 +236,25 @@ Routes requiring user authentication, featuring dashboard layout.
 Each layout group includes a `+layout.server.ts` file for server-side logic:
 
 #### Root Layout Server Logic
+
 - Global data loading
 - User session verification
 - Theme preferences
 
 #### Auth Layout Server (`(auth)/+layout.server.ts`)
+
 - Authentication state checking
 - Redirect logic for authenticated users
 - Auth-specific data loading
 
 #### App Layout Server (`(app)/+layout.server.ts`)
+
 - Protected route authentication verification
 - User data loading for sidebar
 - Permission checking
 
 #### Home Layout Server (`(home)/+layout.server.ts`)
+
 - Public content loading
 - Basic page data
 
@@ -250,11 +273,13 @@ Individual pages include `+page.server.ts` files for:
 ### Authentication Flow
 
 1. **Unauthenticated User Access:**
+
    ```
    / (home) → /sign-in → /dashboard
    ```
 
 2. **User Registration:**
+
    ```
    / (home) → /sign-up → /sign-in → /dashboard
    ```
@@ -286,6 +311,7 @@ All forms follow a consistent pattern:
 ## Navigation Structure
 
 ### Public Navigation
+
 - Home (`/`)
 - Sign In (`/sign-in`)
 - Sign Up (`/sign-up`)
@@ -293,6 +319,7 @@ All forms follow a consistent pattern:
 - Terms of Service (`/terms-of-service`)
 
 ### Authenticated Navigation
+
 - Dashboard (`/dashboard`) - Main app interface
 - Settings (`/settings`) - User preferences
 - Sign Out (`/sign-out`) - Logout action
@@ -303,13 +330,13 @@ The sidebar provides organized navigation for authenticated users:
 
 ```typescript
 const navigationItems = [
-  {
-    group: "Main",
-    items: [
-      { label: "Dashboard", href: "/dashboard", icon: DashboardIcon },
-      { label: "Settings", href: "/settings", icon: SettingsIcon }
-    ]
-  }
+	{
+		group: 'Main',
+		items: [
+			{ label: 'Dashboard', href: '/dashboard', icon: DashboardIcon },
+			{ label: 'Settings', href: '/settings', icon: SettingsIcon }
+		]
+	}
 ];
 ```
 

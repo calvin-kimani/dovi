@@ -8,6 +8,7 @@
 	import Input from '$lib/components/input.svelte';
 	import Label from '$lib/components/label.svelte';
 	import FormErrors from '$lib/components/form-errors.svelte';
+	import { AppName } from '$lib/config';
 
 	let { form: data }: { form: SuperValidated<SignInSchema> } = $props();
 
@@ -44,7 +45,7 @@
 		<FormErrors errors={$errors.email} />
 	</fieldset>
 
-	<fieldset class="mb-3">
+	<fieldset class="mb-6">
 		<Label for="password">Password</Label>
 		<Input
 			id="password"
@@ -68,7 +69,7 @@
 	</div>
 
 	<div class="space-x-1 text-center text-sm">
-		<span>New to Dovi?</span>
+		<span>New to {AppName}?</span>
 		<a href="/sign-up" class="text-primary/90 hover:text-primary duration-100">Create an account</a>
 	</div>
 </form>

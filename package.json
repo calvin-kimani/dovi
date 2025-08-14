@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev --host=0.0.0.0 --port=80",
+		"dev": "vite dev --host=0.0.0.0",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
@@ -39,6 +39,7 @@
 	"dependencies": {
 		"@lucide/svelte": "^0.525.0",
 		"mode-watcher": "^1.1.0",
+		"arctic": "^3.7.0",
 		"svelte-sonner": "^1.0.5",
 		"sveltekit-superforms": "^2.27.1",
 		"zod": "^3.25.76"

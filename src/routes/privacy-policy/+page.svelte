@@ -3,5 +3,5 @@
 </script>
 
 <svelte:head>
-	<title>{AppName} | Privacy Policy</title>
+	<title>{AppName} - Privacy Policy</title>
 </svelte:head>
