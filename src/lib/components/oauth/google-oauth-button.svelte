@@ -35,7 +35,7 @@
 				toast.success('Successfully signed in!');
 				goto('/dashboard');
 			} else if (event.data.type === 'OAUTH_ERROR') {
-				popup.close();
+				// Do not close popup here — let user close it manually
 				toast.error(event.data.message || 'Authentication failed');
 			}
 		};
