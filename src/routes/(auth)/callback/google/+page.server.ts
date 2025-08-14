@@ -82,7 +82,7 @@ export const load: PageServerLoad = async ({ url, cookies }) => {
 		const response = await Promise.race([
 			fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
 				headers: {
-					Authorization: `Bearer ${tokens.accessToken}`
+					Authorization: `Bearer ${tokens.accessToken()}`
 				}
 			}),
 			new Promise<never>((_, reject) =>
