@@ -52,6 +52,10 @@ export const load: PageServerLoad = async ({ url, cookies }) => {
 			'email'
 		]);
 
+		// ✅ Log just the redirect_uri part
+		console.log('[OAuth] redirect_uri being sent:', oauthUrl.searchParams.get('redirect_uri'));
+
+
 		throw redirect(302, oauthUrl.toString());
 	}
 
